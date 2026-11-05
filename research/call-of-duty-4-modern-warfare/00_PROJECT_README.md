@@ -36,6 +36,7 @@
 | [`17_PEER_REVIEW.md`](file:///C:/Users/ismai/.gemini/antigravity/scratch/cod4-research/research/call-of-duty-4-modern-warfare/17_PEER_REVIEW.md) | 5-seat independent peer review report + Devil's Advocate challenges | Complete |
 | [`18_REVISION_AND_INTEGRITY_REPORT.md`](file:///C:/Users/ismai/.gemini/antigravity/scratch/cod4-research/research/call-of-duty-4-modern-warfare/18_REVISION_AND_INTEGRITY_REPORT.md) | Revision response, citation verification audit, and integrity check | Complete |
 | [`19_PROCESS_RECORD.md`](file:///C:/Users/ismai/.gemini/antigravity/scratch/cod4-research/research/call-of-duty-4-modern-warfare/19_PROCESS_RECORD.md) | Chronological human-agent research audit trail | Complete |
+| [`20_MISSION_AMBIENCE_AND_PSYCHOLOGICAL_DEEP_DIVE.md`](file:///C:/Users/ismai/.gemini/antigravity/scratch/cod4-research/research/call-of-duty-4-modern-warfare/20_MISSION_AMBIENCE_AND_PSYCHOLOGICAL_DEEP_DIVE.md) | Acoustic architecture, dialogue feedback barks, and psychophysiological analysis | Complete |
 | [`references.bib`](file:///C:/Users/ismai/.gemini/antigravity/scratch/cod4-research/research/call-of-duty-4-modern-warfare/references.bib) | Complete BibTeX bibliographic database with verified DOIs | Complete |
 
 ---

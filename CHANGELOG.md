@@ -2,6 +2,12 @@
 
 All notable changes to this research project will be documented in this file.
 
+## [1.2.0] - 2026-11-05
+### Added
+- Comprehensive scholarly deep dive: `research/call-of-duty-4-modern-warfare/20_MISSION_AMBIENCE_AND_PSYCHOLOGICAL_DEEP_DIVE.md` analyzing acoustic ecology, micro-foley reality effects, situational dialogue barks, prosodic vocal pacing (MacMillan's vagal calming vs. Vasquez's combat tachycardia), VHF/UHF radio distortion, avatar/player psychological transference, learned helplessness, and an exhaustive anatomical study of *All Ghillied Up* and *One Shot, One Kill*.
+- Interactive "Ambience & Psychology" visual tab in `dashboard/index.html` covering acoustic enclosures vs. killzones, dialogue feedback barks, predator-prey dynamics, and cognitive load breakdown.
+- Updated portfolio index `00_PROJECT_README.md` and repository `README.md`.
+
 ## [1.1.0] - 2026-11-05
 ### Added
 - Automated academic export pipeline (`scripts/export_manuscript.py`) utilizing `python-docx`, `bs4`, and `pymupdf.Story`.

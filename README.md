@@ -25,7 +25,7 @@ Research follows the procedural specification of the [Academic Research Skills (
 9. **Stage 6: Process Record** — Complete audit trail of research execution.
 
 ## Repository Layout
-- `research/call-of-duty-4-modern-warfare/` — Complete suite of 20 formal academic deliverables (00 to 19 + `references.bib`).
+- `research/call-of-duty-4-modern-warfare/` — Complete suite of 21 formal academic deliverables (00 to 20 + `references.bib`), including `20_MISSION_AMBIENCE_AND_PSYCHOLOGICAL_DEEP_DIVE.md`.
 - `dist/` — Distribution publication package:
   - `dist/Modern_Warfare_Academic_Monograph.docx`: APA 7th Edition formatted Word document.
   - `dist/Modern_Warfare_Academic_Monograph.pdf`: 19-page publication-quality academic PDF monograph.

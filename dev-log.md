@@ -40,4 +40,15 @@
   - Full academic monograph reader with instant section jumping.
 - Verified all exports and updated project documentation.
 
+## 2026-11-05T08:26:00+06:00 — Mission Ambience & Psychological Deep Dive
+- Researched and authored `research/call-of-duty-4-modern-warfare/20_MISSION_AMBIENCE_AND_PSYCHOLOGICAL_DEEP_DIVE.md`:
+  - Ambient Acoustic Architecture: Claustrophobic Enclosures vs. Exposed Killzones, micro-foley reality effects (Bering Strait storm, domestic porcelain breakage, industrial missile silo droning).
+  - Dynamic Dialogue Feedback Loops: Prosodic vocal delivery analysis contrasting Captain MacMillan's maternal/paternal vagal calming Scottish whisper (<45dB) against Lieutenant Vasquez's combat tachycardia pressure cooker (>140 BPM urgency).
+  - Radio Acoustic Filters: VHF/UHF bandpass filtering (300Hz-3.4kHz), harmonic clipping, and panic induced by broken audio links.
+  - Exhaustive anatomical study of *All Ghillied Up* & *One Shot, One Kill*: Inversion of the FPS dopamine loop (70% prone crawl, weapon as liability), predator-prey transference in the convoy crawl, Geiger counter as an acoustic heartbeat of invisible death, and the collapse of sanctuary at the Pripyat amusement park.
+  - Avatar & Gamer Psychological Dialectic: Price's "dirty hands" guilt from 1996; Jackson's expendability; Imran Zakhaev's revanchist grief following Viktor's suicide; learned helplessness in *The Coup* & *Aftermath*; moral disengagement/complicity in *Death From Above*; cognitive overload under countdown timers.
+- Enhanced `dashboard/index.html` with an interactive "Ambience & Psychology" research module.
+- Updated `00_PROJECT_README.md`, `README.md`, and `CHANGELOG.md`.
+
+
 
