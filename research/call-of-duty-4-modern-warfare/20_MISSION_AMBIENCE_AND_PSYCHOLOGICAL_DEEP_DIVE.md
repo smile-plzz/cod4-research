@@ -376,3 +376,4 @@ Ultimately, in *Modern Warfare*, war is not an abstract political contest; it is
 - Ramsay, D. (2015). Liminal spaces: Modern Warfare and the aesthetics of the post-9/11 military FPS. *Game Studies*, 15(2). http://gamestudies.org/1502/articles/ramsay
 - Seligman, M. E. (1975). *Helplessness: On depression, development, and death*. W. H. Freeman.
 - Stahl, R. (2010). *Militainment, Inc.: War, media, and popular culture*. Routledge. https://doi.org/10.4324/9780203873298
+
