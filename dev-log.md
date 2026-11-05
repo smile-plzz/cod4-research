@@ -28,3 +28,16 @@
 - Completed Stage 4 & 4.5 (Revision & Integrity Audit): Addressed all reviewer recommendations and certified zero-tolerance compliance in `18_REVISION_AND_INTEGRITY_REPORT.md`.
 - Completed Stage 5 & 6 (Process Record & Indexing): Finalized `00_PROJECT_README.md` and compiled complete research audit in `19_PROCESS_RECORD.md`.
 
+## 2026-11-05T08:20:00+06:00 — Document Export Pipeline & Interactive Dashboard
+- Implemented `scripts/export_manuscript.py` leveraging Python's `python-docx`, `bs4`, `markdown`, and `pymupdf` Story Engine.
+- Compiled `16_FULL_RESEARCH_PAPER.md` (9,974 words) into two distribution formats:
+  - `dist/Modern_Warfare_Academic_Monograph.docx`: APA 7th Edition formatted Microsoft Word document (68.2 KB) with 1-inch margins, running headers, table borders, and hanging indent references.
+  - `dist/Modern_Warfare_Academic_Monograph.pdf`: 19-page publication-quality academic PDF (400.3 KB) with custom typography, page numbers ("Page X of 19"), running header bars, and callout formatting.
+- Developed standalone interactive research dashboard `dashboard/index.html` (40.6 KB):
+  - Interactive 21-mission database with act-based filtering and modal analytical dossiers.
+  - 13-character 16-dimensional profile explorer with factional categorization.
+  - 2007 vs. 2016 comparative technical visualizer across PBR, audio, embodiment, and tick rates.
+  - Full academic monograph reader with instant section jumping.
+- Verified all exports and updated project documentation.
+
+

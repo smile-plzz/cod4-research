@@ -26,6 +26,13 @@ Research follows the procedural specification of the [Academic Research Skills (
 
 ## Repository Layout
 - `research/call-of-duty-4-modern-warfare/` — Complete suite of 20 formal academic deliverables (00 to 19 + `references.bib`).
+- `dist/` — Distribution publication package:
+  - `dist/Modern_Warfare_Academic_Monograph.docx`: APA 7th Edition formatted Word document.
+  - `dist/Modern_Warfare_Academic_Monograph.pdf`: 19-page publication-quality academic PDF monograph.
+- `dashboard/` — Interactive web research application:
+  - `dashboard/index.html`: Standalone single-file visual research portal with 21-mission matrix, character dossier, and 2007 vs 2016 comparative engine.
+- `scripts/` — Automated build and export pipeline:
+  - `scripts/export_manuscript.py`: Python script converting Markdown to publication-grade DOCX and PDF.
 - `dev-log.md` — Chronological log of execution steps and milestones.
 - `context.md` — Project goals, technical constraints, theoretical stack, and parameters.
 - `CHANGELOG.md` — Versioned updates and audit notes.

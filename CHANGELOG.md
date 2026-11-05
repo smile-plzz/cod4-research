@@ -2,6 +2,14 @@
 
 All notable changes to this research project will be documented in this file.
 
+## [1.1.0] - 2026-11-05
+### Added
+- Automated academic export pipeline (`scripts/export_manuscript.py`) utilizing `python-docx`, `bs4`, and `pymupdf.Story`.
+- Publication-quality document distribution package in `dist/`:
+  - `dist/Modern_Warfare_Academic_Monograph.docx`: APA 7th Edition Word manuscript (68.2 KB).
+  - `dist/Modern_Warfare_Academic_Monograph.pdf`: 19-page academic monograph PDF with running headers, footers, and callouts (400.3 KB).
+- Interactive Research Portal & Visual Dashboard (`dashboard/index.html`, 40.6 KB) featuring 21-mission filtering, 16-dimension character cards, 2007 vs. 2016 comparative matrix, and monograph reader.
+
 ## [1.0.0] - 2026-11-05
 ### Added
 - Complete academic research portfolio on *Call of Duty 4: Modern Warfare* (2007) and *Modern Warfare Remastered* (2016) in `research/call-of-duty-4-modern-warfare/`.

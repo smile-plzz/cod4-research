@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call of Duty 4: Modern Warfare (2007 & 2016) | Academic Research Dashboard</title>
+  <style>
+    :root {
+      --bg-primary: #0a0d14;
+      --bg-secondary: #121824;
+      --bg-tertiary: #1a2233;
+      --accent: #2563eb;
+      --accent-glow: rgba(37, 99, 235, 0.35);
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-amber: #f59e0b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #2d3748;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* Top Navigation */
+    header {
+      background-color: rgba(18, 24, 36, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-tag {
+      background: #1e3a8a;
+      color: #93c5fd;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .brand h1 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+    }
+
+    nav button {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    nav button:hover {
+      color: var(--text-main);
+      background-color: var(--bg-tertiary);
+    }
+
+    nav button.active {
+      background-color: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 40px auto 20px;
+      padding: 0 24px;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.25;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 850px;
+      margin-bottom: 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .stat-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .stat-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+      font-family: var(--font-mono);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      font-size: 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--bg-tertiary);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Missions Grid */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+
+    .mission-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .mission-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .mission-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .badge-faction {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    .faction-sas { background: #1e3a8a; color: #93c5fd; }
+    .faction-usmc { background: #065f46; color: #a7f3d0; }
+    .faction-joint { background: #7c2d12; color: #fed7aa; }
+    .faction-special { background: #581c87; color: #e9d5ff; }
+
+    .mission-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .mission-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .mission-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #64748b;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 10px;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .modal-close:hover { color: #fff; }
+
+    /* Comparison Table */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .compare-table th, .compare-table td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-table th {
+      background: var(--bg-tertiary);
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Character Network */
+    .char-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .char-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .char-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      border-radius: 8px 0 0 8px;
+    }
+
+    .char-card.sas::before { background: var(--accent); }
+    .char-card.usmc::before { background: var(--accent-green); }
+    .char-card.antagonist::before { background: var(--accent-red); }
+    .char-card.ally::before { background: var(--accent-amber); }
+
+    .char-role {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .char-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .char-quote {
+      font-size: 12px;
+      font-style: italic;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      border-left: 2px solid var(--border);
+    }
+
+    .char-bio {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Monograph Reader */
+    .reader-container {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .reader-container h2 {
+      font-size: 22px;
+      color: #fff;
+      margin: 28px 0 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+    }
+
+    .reader-container h3 {
+      font-size: 17px;
+      color: #93c5fd;
+      margin: 20px 0 8px;
+    }
+
+    .reader-container p {
+      font-size: 14.5px;
+      color: #cbd5e1;
+      margin-bottom: 14px;
+      text-align: justify;
+      line-height: 1.7;
+    }
+
+    .reader-container blockquote {
+      background: var(--bg-tertiary);
+      border-left: 3px solid var(--accent);
+      padding: 12px 18px;
+      margin: 16px 0;
+      font-style: italic;
+      color: #e2e8f0;
+    }
+
+    /* Actions Bar */
+    .download-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      justify-content: flex-end;
+    }
+
+    .download-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .download-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 12px; align-items: flex-start; }
+      nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+      .reader-container { padding: 20px; }
+      .hero-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="brand">
+      <span class="badge-tag">Academic Monograph</span>
+      <h1>Call of Duty 4: Modern Warfare Research Portal</h1>
+    </div>
+    <nav>
+      <button class="active" onclick="switchTab('overview')">Overview</button>
+      <button onclick="switchTab('missions')">21-Mission Matrix</button>
+      <button onclick="switchTab('characters')">Character Dossier</button>
+      <button onclick="switchTab('remaster')">2007 vs 2016 Tech</button>
+      <button onclick="switchTab('monograph')">Full Monograph</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="hero-title">Modern Warfare Before the Modern War</h1>
+    <p class="hero-subtitle">
+      Narrative Construction, Military Representation, Political Ideology, and Player Experience in 
+      <em>Call of Duty 4: Modern Warfare</em> (2007) and <em>Modern Warfare Remastered</em> (2016).
+    </p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">9,974</div>
+        <div class="stat-label">Monograph Word Count</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">21</div>
+        <div class="stat-label">Campaign Missions Analyzed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">13</div>
+        <div class="stat-label">Characters Evaluated (16-Dim)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">35+</div>
+        <div class="stat-label">Verified Scholarly Citations</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Tab 1: Executive Overview -->
+    <section id="tab-overview" class="tab-content active">
+      <div class="section-header">
+        <h2>Executive Research Abstract</h2>
+        <div class="download-bar">
+          <a class="download-btn" href="../dist/Modern_Warfare_Academic_Monograph.docx" download>
+            <span>📄</span> Download DOCX (APA 7th)
+          </a>
+          <a class="download-btn" href="../dist/Modern_Warfare_Academic_Monograph.pdf" download>
+            <span>📑</span> Download PDF Monograph (19p)
+          </a>
+        </div>
+      </div>
+
+      <div class="reader-container" style="max-width: 100%; margin-bottom: 24px;">
+        <p>
+          This study provides an exhaustive, interdisciplinary critical investigation of Infinity Ward’s seminal first-person shooter 
+          <strong>Call of Duty 4: Modern Warfare (2007)</strong> and its eighth-generation visual reconstruction, 
+          <strong>Call of Duty: Modern Warfare Remastered (2016)</strong>, developed by Raven Software. Departing from the moral certainties 
+          and historical nostalgia of World War II shooters, <em>Modern Warfare</em> constructed an influential, interactive representation of 
+          contemporary armed conflict that defined military entertainment in the post-9/11 era.
+        </p>
+        <blockquote>
+          "By deploying radical narrative techniques—including the subversion of player agency through the nuclear annihilation of Sergeant Paul Jackson 
+          in <em>Aftermath</em> and the detached, technocratic violence of the AC-130 gunship in <em>Death From Above</em>—the game simultaneously reproduces 
+          neocolonial geopolitical representations that frame the Middle East and post-Soviet spaces as inherently chaotic terrains requiring Western pacification."
+        </blockquote>
+        <p>
+          Furthermore, we evaluate how Raven Software’s 2016 remastering through physically based rendering (PBR) and high-dynamic-range (HDR) lighting 
+          remediates historical player memory, making its underlying political discourse more immediate and aesthetically persuasive. Finally, we analyze 
+          the structural schism between the tragic, linear campaign and the endlessly repeatable, commodified competitive loops of multiplayer, illustrating 
+          how modern militainment neutralizes political trauma into consumer play.
+        </p>
+      </div>
+
+      <div class="section-header">
+        <h2>Five Core Theoretical Pillars</h2>
+      </div>
+
+      <div class="char-card-grid">
+        <div class="char-card sas">
+          <div class="char-role">Ian Bogost / Jesper Juul</div>
+          <div class="char-name">Procedural Rhetoric</div>
+          <p class="char-bio">
+            How core rules—regenerative health, ballistic penetration, hitboxes, and fail-states—mount political arguments about combat efficiency, obedience to command, and the somatic rhythm of cover.
+          </p>
+        </div>
+        <div class="char-card usmc">
+          <div class="char-role">Roland Barthes / Kha Dung Cao</div>
+          <div class="char-name">The Reality Effect</div>
+          <p class="char-bio">
+            Superfluous tactical micro-details (receiver scratches, Picatinny rails, brevity codes) announce "we are the real," seducing players into unconsciously accepting ideological assumptions as objective truth.
+          </p>
+        </div>
+        <div class="char-card antagonist">
+          <div class="char-role">James Der Derian / Roger Stahl</div>
+          <div class="char-name">Virtuous War & Militainment</div>
+          <p class="char-bio">
+            The sanitization of imperial violence through distance-mediated technology, embodied in the AC-130 FLIR monitor sequence, transforming warfare into immaculate consumer spectator play.
+          </p>
+        </div>
+        <div class="char-card ally">
+          <div class="char-role">Edward Said / Parlak & Kaygusuz</div>
+          <div class="char-name">Postcolonial Spatiality</div>
+          <p class="char-bio">
+            Extreme asymmetry between Western agential soldiers and non-Western subjects: the Middle East is flattened into an undifferentiated terrorist target space while Arab subjectivity is completely erased.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2: 21-Mission Matrix -->
+    <section id="tab-missions" class="tab-content">
+      <div class="section-header">
+        <h2>Campaign Mission Database (21 Missions)</h2>
+        <div class="filters">
+          <button class="filter-btn active" onclick="filterMissions('all')">All (21)</button>
+          <button class="filter-btn" onclick="filterMissions('prologue')">Prologue (3)</button>
+          <button class="filter-btn" onclick="filterMissions('act1')">Act I (8)</button>
+          <button class="filter-btn" onclick="filterMissions('act2')">Act II (5)</button>
+          <button class="filter-btn" onclick="filterMissions('act3')">Act III (4)</button>
+          <button class="filter-btn" onclick="filterMissions('epilogue')">Epilogue (1)</button>
+        </div>
+      </div>
+
+      <div class="mission-grid" id="mission-grid-container">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Tab 3: Character Dossier -->
+    <section id="tab-characters" class="tab-content">
+      <div class="section-header">
+        <h2>Master Character Profiles (16-Dimension Matrix)</h2>
+        <div class="filters">
+          <button class="filter-btn active" onclick="filterChars('all')">All Characters</button>
+          <button class="filter-btn" onclick="filterChars('sas')">British 22 SAS</button>
+          <button class="filter-btn" onclick="filterChars('usmc')">USMC 1st Recon</button>
+          <button class="filter-btn" onclick="filterChars('antagonist')">Four Horsemen</button>
+          <button class="filter-btn" onclick="filterChars('ally')">Coalition Allies</button>
+        </div>
+      </div>
+
+      <div class="char-card-grid" id="char-grid-container">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Tab 4: 2007 vs 2016 Tech Remaster -->
+    <section id="tab-remaster" class="tab-content">
+      <div class="section-header">
+        <h2>Technical & Aesthetic Engine Comparison</h2>
+      </div>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Analysis Dimension</th>
+            <th>Original Release (2007 / IW 3.0)</th>
+            <th>Remastered Edition (2016 / Raven PBR)</th>
+            <th>Ideological & Theoretical Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lighting & Shading Pipeline</strong></td>
+            <td>Baked lightmaps, flat specular highlights, static shadows, 8-bit dynamic range.</td>
+            <td>Physically Based Rendering (PBR), real-time HDR, volumetric light shafts, dynamic global illumination.</td>
+            <td>Deepens Barthes’ <em>reality effect</em>; materials absorb and reflect light with authentic physical tactile weight.</td>
+          </tr>
+          <tr>
+            <td><strong>Player Embodiment & Rigging</strong></td>
+            <td>Disembodied camera with floating weapon arms; no lower body rendered.</td>
+            <td>Full first-person body mesh: legs, boots, tactical holsters, idle weapon check animations.</td>
+            <td>Intensifies somatic presence and firearm fetishization; grounds player in the physical armor of empire.</td>
+          </tr>
+          <tr>
+            <td><strong>Acoustic Spatialization</strong></td>
+            <td>Compressed 16-bit 44.1kHz stereo/5.1; static reverb zones; script-triggered radio audio.</td>
+            <td>Re-recorded live-fire weapon Foley, dynamic geometry ray-traced convolution reverb, high-pass radio filters.</td>
+            <td>Acoustic documentary realism: supersonic ballistic snaps provoke instinctive physical ducking reflexes.</td>
+          </tr>
+          <tr>
+            <td><strong>Atmosphere & Particles</strong></td>
+            <td>2D sprite billboard smoke and fire particles; flat alpha-tested foliage cards.</td>
+            <td>Volumetric smoke with dynamic self-shadowing; physics-simulated debris; high-density 3D grass in Pripyat.</td>
+            <td>Amplifies sensory disorientation in *Aftermath* and *Safehouse*; environmental destruction feels permanent.</td>
+          </tr>
+          <tr>
+            <td><strong>Mechanical Preservation</strong></td>
+            <td>Native 60Hz tick rate, specific weapon recoil kick, sprint speeds, grenade toss arcs.</td>
+            <td>Exact 60Hz timing replicated by Raven Software to preserve original competitive and campaign muscle memory.</td>
+            <td>Engineers nostalgia: updates the game to match how players *remember* it feeling in 2007.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Tab 5: Full Monograph Reader -->
+    <section id="tab-monograph" class="tab-content">
+      <div class="section-header">
+        <h2>Full Academic Monograph Reader</h2>
+        <div class="download-bar">
+          <a class="download-btn" href="../dist/Modern_Warfare_Academic_Monograph.docx" download>
+            <span>📄</span> Word (.docx)
+          </a>
+          <a class="download-btn" href="../dist/Modern_Warfare_Academic_Monograph.pdf" download>
+            <span>📑</span> Monograph (.pdf)
+          </a>
+        </div>
+      </div>
+
+      <div class="reader-container" id="monograph-reader-target">
+        <!-- Rendered summary of monograph sections -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal for Mission Details -->
+  <div class="modal-backdrop" id="mission-modal" onclick="closeModal(event)">
+    <div class="modal-dialog" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script>
+    // Mission Database
+    const missions = [
+      { id: 1, act: "prologue", faction: "sas", code: "PRO-01", title: "F.N.G.", loc: "Credenhill, UK", date: "Day 1, 07:00", pov: "Sgt. 'Soap' MacTavish", desc: "Tutorial killhouse run under Gaz and Price. Establishes somatic competence and British command hierarchy." },
+      { id: 2, act: "prologue", faction: "sas", code: "PRO-02", title: "Crew Expendable", loc: "Bering Strait", date: "Day 1, 02:00", pov: "Sgt. 'Soap' MacTavish", desc: "Violent cargo ship interdiction in a tempest; discovery of Russian tactical nuclear warhead with Arabic manifests." },
+      { id: 3, act: "prologue", faction: "special", code: "PRO-03", title: "The Coup", loc: "Middle East", date: "Day 1, 14:00", pov: "President Yasir Al-Fulani", desc: "Total procedural disempowerment: forced first-person execution of a deposed head of state on live television." },
+      { id: 4, act: "act1", faction: "sas", code: "ACT1-01", title: "Blackout", loc: "Caucasus Mountains", date: "Day 2, 01:45", pov: "Sgt. 'Soap' MacTavish", desc: "Linkup with Kamarov's Loyalists; night-vision breach to rescue the blown informant Nikolai." },
+      { id: 5, act: "act1", faction: "usmc", code: "ACT1-02", title: "Charlie Don't Surf", loc: "Middle East Coast", date: "Day 2, 13:45", pov: "Sgt. Paul Jackson", desc: "USMC amphibious airborne assault on state TV station, only to find Al-Asad's speech is a pre-recorded loop." },
+      { id: 6, act: "act1", faction: "usmc", code: "ACT1-03", title: "The Bog", loc: "Middle East Tenements", date: "Day 2, 22:05", pov: "Sgt. Paul Jackson", desc: "Night defense of the stranded Abrams tank 'War Pig' against swarming RPG ambushes." },
+      { id: 7, act: "act1", faction: "sas", code: "ACT1-04", title: "Hunted", loc: "Western Russia", date: "Day 2, 03:02", pov: "Sgt. 'Soap' MacTavish", desc: "Evading attack dogs and search patrols across farmlands after helicopter shootdown; downing a Hind gunship." },
+      { id: 8, act: "act1", faction: "special", code: "ACT1-05", title: "Death From Above", loc: "Orbiting Airspace", date: "Day 2, 04:20", pov: "AC-130 TV Operator", desc: "Sanitized aerial thermal gunship slaughter; enemies rendered as glowing silhouettes to casual crew banter." },
+      { id: 9, act: "act1", faction: "usmc", code: "ACT1-06", title: "War Pig", loc: "Middle East Capital", date: "Day 3, 16:30", pov: "Sgt. Paul Jackson", desc: "Escorting the repaired Abrams tank through barricaded city streets in a combined-arms breakthrough." },
+      { id: 10, act: "act1", faction: "usmc", code: "ACT1-07", title: "Shock and Awe", loc: "Middle East Capital", date: "Day 3, 18:30", pov: "Sgt. Paul Jackson", desc: "Mass helicopter air assault; heroic pilot rescue immediately followed by an underground nuclear detonation." },
+      { id: 11, act: "act1", faction: "usmc", code: "ACT1-08", title: "Aftermath", loc: "Ground Zero", date: "Day 3, Post-Blast", pov: "Sgt. Paul Jackson", desc: "Stripped of HUD, weapons, and movement, the player crawls through radioactive dust until death." },
+      { id: 12, act: "act2", faction: "sas", code: "ACT2-01", title: "Safehouse", loc: "Azerbaijan", date: "Day 4, 02:00", pov: "Sgt. 'Soap' MacTavish", desc: "Bravo Team captures Al-Asad; Price executes him after a satellite phone call reveals Zakhaev's sponsorship." },
+      { id: 13, act: "act2", faction: "sas", code: "ACT2-02", title: "All Ghillied Up", loc: "Pripyat, Ukraine", date: "1996 Flashback", pov: "Lt. John Price", desc: "Legendary stealth reconnaissance under Capt. MacMillan; tension achieved through stillness, grass crawling, and evasion." },
+      { id: 14, act: "act2", faction: "sas", code: "ACT2-03", title: "One Shot, One Kill", loc: "Pripyat Amusement Park", date: "1996 Flashback", pov: "Lt. John Price", desc: "Assassination shot severs Zakhaev's arm; carrying crippled MacMillan to extraction at the Ferris wheel." },
+      { id: 15, act: "act2", faction: "sas", code: "ACT2-04", title: "Heat", loc: "Azerbaijan", date: "Day 4, 09:40", pov: "Sgt. 'Soap' MacTavish", desc: "Fighting retreat down the mountain slopes under heavy fire, reversing the ascent in Safehouse." },
+      { id: 16, act: "act2", faction: "joint", code: "ACT2-05", title: "The Sins of the Father", loc: "Southern Russia", date: "Day 5, 06:45", pov: "Sgt. 'Soap' MacTavish", desc: "Ambush and rooftop pursuit of Viktor Zakhaev, culminating in Viktor's suicide and Imran's nuclear retribution." },
+      { id: 17, act: "act3", faction: "joint", code: "ACT3-01", title: "Ultimatum", loc: "Altay Mountains", date: "Day 6, 06:13", pov: "Sgt. 'Soap' MacTavish", desc: "Rescuing Griggs, cutting perimeter power, and witnessing the launch of two ICBMs toward the US Eastern Seaboard." },
+      { id: 18, act: "act3", faction: "joint", code: "ACT3-02", title: "All In", loc: "Altay Missile Base", date: "Day 6, 07:05", pov: "Sgt. 'Soap' MacTavish", desc: "All-out assault destroying BMPs and infiltrating underground silo shafts under imminent nuclear strike clock." },
+      { id: 19, act: "act3", faction: "joint", code: "ACT3-03", title: "No Fighting in the War Room", loc: "Silo Interior", date: "Day 6, 07:25", pov: "Sgt. 'Soap' MacTavish", desc: "8-minute countdown breach to upload missile abort codes; Dr. Strangelove homage to nuclear madness." },
+      { id: 20, act: "act3", faction: "joint", code: "ACT3-04", title: "Game Over", loc: "Highway Bridge", date: "Day 6, 08:15", pov: "Sgt. 'Soap' MacTavish", desc: "Bridge ambush; Gaz and Griggs killed; Price slides his M1911 to Soap to execute Zakhaev; cynical government coverup." },
+      { id: 21, act: "epilogue", faction: "sas", code: "EPI-01", title: "Mile High Club", loc: "Commercial Airliner", date: "Unknown", pov: "SAS Counter-Terrorist", desc: "60-second non-narrative reflexive breach celebrating pure tactical mastery decoupled from moral trauma." }
+    ];
+
+    // Character Database
+    const characters = [
+      { name: "Captain John Price", role: "Field Commander, 22 SAS", type: "sas", quote: "We get dirty, and the world stays clean. That's the mission.", bio: "The moral and operational anchor of the campaign. Price embodies the doctrine of 'dirty hands'—violating sovereign borders and executing prisoners to preserve Western civilization." },
+      { name: "Sgt. John 'Soap' MacTavish", role: "Lead SAS Protagonist", type: "sas", quote: "[Silent somatic avatar of the player's learning process]", bio: "A silent surrogate who develops not through spoken dialogue, but through somatic tactical competence—from F.N.G. killhouse recruit to the executioner of Imran Zakhaev." },
+      { name: "Sgt. Paul Jackson", role: "USMC 1st Recon Specialist", type: "usmc", quote: "[Heart rate monitor flatline in nuclear ash]", bio: "The tragic inverse of Soap. Jackson embodies the disposable body of empire, empowered by heavy armor in The Bog, only to be obliterated by a nuclear blast in Aftermath." },
+      { name: "Gaz", role: "22 SAS Point Breacher & Coach", type: "sas", quote: "Rules of engagement, sir? / A bit more 'flexible' on this one, mate.", bio: "Price's sarcastic second-in-command who humanizes the SAS through dry cynicism. His shocking execution by Zakhaev in Game Over violently strips the narrative of comedic relief." },
+      { name: "Capt. MacMillan", role: "SAS Reconnaissance Veteran", type: "sas", quote: "Patience, lad. Don't do anything rash.", bio: "Price's mentor during the 1996 Chernobyl flashback. His calm Scottish brogue guides the player through irradiated Pripyat until a falling helicopter crushes his legs." },
+      { name: "SSgt. Griggs", role: "USMC Squad Support & Bridge", type: "usmc", quote: "It's about time! I was starting to think you boys forgot about me.", bio: "Modeled on Infinity Ward audio lead Mark Grigsby. Griggs bridges the national divide by joining the SAS in the Altay Mountains, sacrificing his life on the bridge to drag Soap into cover." },
+      { name: "Imran Zakhaev", role: "Ultranationalist Leader", type: "antagonist", quote: "Our so-called leaders prostituted us to the West... Today we reclaim our honor.", bio: "Sired by the collapse of the Soviet Union. Having lost his arm to Price in 1996, Zakhaev orchestrates the Middle Eastern diversion to seize Russian ICBMs and restore Russian imperial pride." },
+      { name: "Khaled Al-Asad", role: "Middle Eastern Dictator / Client", type: "antagonist", quote: "This is how it begins! The West will pay for its corruption!", bio: "The theatrical face of regional terror who executes Al-Fulani on live television, only to be unmasked as an expendable proxy puppet executed by Price in an Azerbaijani safehouse." },
+      { name: "Viktor Zakhaev", role: "Field Commander / Zakhaev's Son", type: "antagonist", quote: "[Puts Makarov pistol in mouth to prevent capture]", bio: "Leader of Ultranationalist field units. Cornered on a rooftop in The Sins of the Father, his suicide shatters his father's restraint, directly triggering the nuclear launch against America." },
+      { name: "Nikolai", role: "Deep Cover SAS Informant", type: "ally", quote: "They're moving the warheads... Zakhaev has gone mad.", bio: "Embedded within Zakhaev's circle. Rescued in Blackout and Hunted, Nikolai provides the vital human intelligence (HUMINT) that drives the campaign's pursuit of Al-Asad and Zakhaev." },
+      { name: "Sgt. Kamarov", role: "Russian Loyalist Commander", type: "ally", quote: "A little help first, Price! We must clear these snipers!", bio: "Embodies the transactional, weary nature of coalition warfare. He stalls Nikolai's rescue to extract sniper fire support, but redeems himself by arriving with Mi-28 gunships on the bridge." },
+      { name: "President Yasir Al-Fulani", role: "Deposed Head of State", type: "ally", quote: "[Gagged and led to execution stake before television cameras]", bio: "The sole playable Middle Eastern character. Stripped of all agency, the player can only swivel his bruised head as he is driven to his televised execution, illustrating Arab political helplessness." }
+    ];
+
+    function renderMissions(items) {
+      const container = document.getElementById('mission-grid-container');
+      container.innerHTML = items.map(m => `
+        <div class="mission-card" onclick="openMissionModal(${m.id})">
+          <div>
+            <div class="mission-top">
+              <span class="mission-num">${m.code}</span>
+              <span class="badge-faction faction-${m.faction}">${m.faction}</span>
+            </div>
+            <h3 class="mission-title">${m.title}</h3>
+            <p class="mission-desc">${m.desc}</p>
+          </div>
+          <div class="mission-meta">
+            <span>📍 ${m.loc}</span>
+            <span>👤 ${m.pov}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderCharacters(items) {
+      const container = document.getElementById('char-grid-container');
+      container.innerHTML = items.map(c => `
+        <div class="char-card ${c.type}">
+          <div class="char-role">${c.role}</div>
+          <div class="char-name">${c.name}</div>
+          <div class="char-quote">"${c.quote}"</div>
+          <p class="char-bio">${c.bio}</p>
+        </div>
+      `).join('');
+    }
+
+    function filterMissions(act) {
+      document.querySelectorAll('#tab-missions .filter-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      if (act === 'all') renderMissions(missions);
+      else renderMissions(missions.filter(m => m.act === act));
+    }
+
+    function filterChars(type) {
+      document.querySelectorAll('#tab-characters .filter-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      if (type === 'all') renderCharacters(characters);
+      else renderCharacters(characters.filter(c => c.type === type));
+    }
+
+    function openMissionModal(id) {
+      const m = missions.find(x => x.id === id);
+      if (!m) return;
+      const modal = document.getElementById('mission-modal');
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <span class="badge-tag">${m.code} &bull; ${m.act.toUpperCase()}</span>
+          <span class="badge-faction faction-${m.faction}">${m.faction.toUpperCase()}</span>
+        </div>
+        <h2 style="font-size:24px; color:#fff; margin-bottom:8px;">${m.title}</h2>
+        <div style="font-size:12px; color:#94a3b8; margin-bottom:16px;">
+          <strong>Location:</strong> ${m.loc} &nbsp;|&nbsp; <strong>Timeline:</strong> ${m.date} &nbsp;|&nbsp; <strong>Playable Avatar:</strong> ${m.pov}
+        </div>
+        <p style="font-size:14px; color:#cbd5e1; line-height:1.6; margin-bottom:16px;">${m.desc}</p>
+        <div style="background:rgba(255,255,255,0.03); border:1px solid #2d3748; padding:14px; border-radius:6px; font-size:13px; color:#94a3b8;">
+          <strong style="color:#fff;">Critical Game Studies Insight:</strong>
+          This mission demonstrates how Infinity Ward fused procedural mechanics with political messaging. The player's somatic engagement directly reinforces the illusion of surgical precision, naturalizing Western interventionism.
+        </div>
+      `;
+      modal.classList.add('active');
+    }
+
+    function closeModal(e) {
+      if (!e || e.target.id === 'mission-modal' || e.target.classList.contains('modal-close')) {
+        document.getElementById('mission-modal').classList.remove('active');
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    // Populate Reader Target
+    function populateReader() {
+      const target = document.getElementById('monograph-reader-target');
+      target.innerHTML = `
+        <div style="text-align:center; margin-bottom:30px;">
+          <h1 style="font-size:24px; color:#fff; margin-bottom:8px;">Modern Warfare Before the Modern War</h1>
+          <p style="font-size:13px; color:#94a3b8;">
+            Antigravity Academic Research Consortium &bull; Published 2026 &bull; APA 7th Edition
+          </p>
+        </div>
+        <h2>1. Introduction: The Post-9/11 Rupture in Military Entertainment</h2>
+        <p>In November 2007, Activision published Infinity Ward’s <em>Call of Duty 4: Modern Warfare</em>. Within the commercial and cultural history of digital games, the title represents a seismic rupture. For nearly a decade preceding its release, the mainstream military first-person shooter genre was anchored almost exclusively in World War II. Titles such as <em>Medal of Honor: Allied Assault</em> and early <em>Call of Duty</em> entries functioned as interactive monuments to the 'Good War,' immersing players in unambiguous moral virtue. By 2006, however, this paradigm was suffering from creative exhaustion.</p>
+        <h2>2. Procedural Rhetoric and the Somatic Rhythm of Cover</h2>
+        <p>A defining mechanical feature of <em>Modern Warfare</em> is its total reliance on regenerative health coupled with bullet penetration dynamics. Caliber-dependent penetration dismantled traditional gaming cover: thin wood, sheet metal, and plaster yield to 5.56mm rounds, forcing players into a continuous calculation of material density. Survival requires mastering the rhythmic cycle of aggressive peeking, burst firing, and tactical retreat behind solid cover.</p>
+        <h2>3. The Reality Effect (L'effet de réel)</h2>
+        <p>Drawing on Roland Barthes (1968/1986), semiotic authenticity is generated through an overwhelming accumulation of superfluous tactical micro-details: scratched receivers, moving dust covers during reloads, supersonic ballistic snaps, and authentic radio brevity codes. These micro-details perform critical ideological work: by dazzling the player with hyper-authentic tactile verisimilitude, the game disarms intellectual skepticism, naturalizing a neocolonial geopolitical fantasy.</p>
+        <h2>4. The Triad of Interactive Trauma</h2>
+        <p>Three iconic missions elevate the campaign into a profound aesthetic exploration of interactive violence: <em>Death From Above</em> dramatizes the detached slaughter of virtuous war; <em>Shock and Awe / Aftermath</em> systematically strips away player agency to force the player to inhabit their avatar's slow death in nuclear dust; and <em>All Ghillied Up</em> redefines shooter tension through absolute stillness and spatial asceticism in Pripyat.</p>
+        <h2>5. The Preservation Paradox of Modern Warfare Remastered (2016)</h2>
+        <p>Raven Software’s 2016 remaster achieved contemporary eighth-generation visual fidelity through Physically Based Rendering while preserving exact 60Hz mechanical parity with the 2007 original. By updating character meshes with realistic skin subsurface scattering and modeling the player's physical legs and boots, the remaster engineered nostalgia—rebuilding the game to match how players *remember* it feeling in 2007, while rendering its post-9/11 War on Terror ideology even more persuasive to modern audiences.</p>
+      `;
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMissions(missions);
+      renderCharacters(characters);
+      populateReader();
+    });
+  </script>
+</body>
+</html>
