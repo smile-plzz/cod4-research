@@ -1,0 +1,5 @@
+# Ignore cloned sub-repo for main project git commits
+academic-research-skills/
+__pycache__/
+*.pyc
+.DS_Store
