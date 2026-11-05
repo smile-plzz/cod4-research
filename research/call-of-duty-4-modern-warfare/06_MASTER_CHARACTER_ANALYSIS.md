@@ -315,3 +315,4 @@ This document delivers an exhaustive, multi-dimensional academic investigation o
 | **AC-130 TV Operator** | USAF Fire Control Officer | US Air Force 4th SOS | *Death From Above* | Playable character delivering remote 25mm, 40mm, and 105mm lethal fire from altitude; embodies detached technocratic violence. |
 | **AC-130 FCO / Pilot** | Flight Crew / Fire Director | US Air Force 4th SOS | *Death From Above* | Provides casual, professional radio banter (*"Kaboom," "Good kill"*) illustrating the emotional numbness of virtuous war. |
 | **SAS Counter-Terror Lead** | SAS Assault Operative | 22 SAS Counter-Terror | *Mile High Club* | Playable operative in the commercial airliner rescue; represents pure mechanical competence under time constraints. |
+

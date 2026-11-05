@@ -161,3 +161,4 @@ This annotated bibliography documents the primary developer records, empirical g
 ### A27. Newman, J. (2012). *Best before: Video games, supersession and preservation*. Routledge. https://doi.org/10.4324/9780203144343
 - **Content Summary:** Investigates the politics of video game remasters, platform updates, and cultural memory, demonstrating how remasters alter the historical text while claiming fidelity to player memory.
 - **Contribution to Paper:** Foundational framework for Section 14 (The 2016 Remaster).
+

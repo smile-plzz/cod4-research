@@ -48,3 +48,4 @@ This research was executed following the **Academic Research Skills (ARS)** stan
    - `academic-paper` v3.3.1 (Manuscript architecture, argument construction, APA 7)
    - `academic-paper-reviewer` v1.11.1 (5-seat panel simulation + Devil's Advocate)
    - `academic-pipeline` v3.24.1 (State transitions, integrity audits, stage gates)
+

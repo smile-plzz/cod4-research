@@ -90,3 +90,4 @@ flowchart TD
 6. **Ascetic Tension & Silence (*All Ghillied Up*):** In Pripyat, emotional tension is generated not through shooting, but through absolute physical restraint. The player experiences suffocating paranoia, holding their breath while lying prone inches from enemy boots.
 7. **Urgent Desperation (*No Fighting in the War Room*):** An 8-minute countdown timer provokes intense cognitive stress and spatial panic as the player fights through subterranean corridors to prevent global nuclear annihilation.
 8. **Tragic Closure & Sacrifice (*Game Over*):** The final highway bridge collapse strips away tactical options. Watching Gaz and Griggs murdered while concussed triggers feelings of intense grief and rage, culminating in the visceral, slow-motion catharsis of shooting Imran Zakhaev with Price's M1911 pistol. The quiet, tragic ending leaves the player with a profound sense of exhaustion and melancholy.
+

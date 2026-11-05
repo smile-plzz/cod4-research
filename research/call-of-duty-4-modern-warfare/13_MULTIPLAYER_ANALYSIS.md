@@ -122,3 +122,4 @@ flowchart LR
 In the campaign, the detonation of a nuclear warhead in *Shock and Awe* is a tragedy that strips the player of all power and agency. In multiplayer, that same irradiated city center becomes **Crash**—a brightly lit arena where players sprint through the wreckage of the crashed helicopter, earn Airstrikes, and laugh with friends over voice chat while hunting for golden camouflage skins.
 
 Multiplayer systematically purges the narrative of all ethical hesitation, geopolitical critique, and human suffering. It fulfills the ultimate promise of the military-entertainment complex: transforming the machinery and spaces of real-world destruction into a frictionless, monetized consumer spectacle (Stahl, 2010; Payne, 2016; Der Derian, 2009).
+

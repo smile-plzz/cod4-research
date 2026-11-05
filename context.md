@@ -23,3 +23,4 @@
 - **Tools:** Python 3.13.0, Git, file manipulation, web search. (Pandoc CLI is absent; standard markdown, CSV, and BibTeX will be generated directly).
 - **Workspace:** `C:\Users\ismai\.gemini\antigravity\scratch\cod4-research`.
 - **Output Destination:** `research/call-of-duty-4-modern-warfare/`.
+

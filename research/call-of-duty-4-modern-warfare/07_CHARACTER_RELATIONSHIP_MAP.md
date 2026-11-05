@@ -128,3 +128,4 @@ The transmission of professional special-forces tradecraft is generational:
 | **Staff Sergeant Griggs** | Ultranationalist Gunfire | *Game Over* | Represents the ultimate sacrifice of military brotherhood, dying while pulling the wounded Soap into cover. |
 | **Gaz** | Imran Zakhaev (Point-Blank Execution) | *Game Over* | Strips the SAS unit of its humorous, reassuring anchor in a sudden, unglamorous moment of cruelty. |
 | **Imran Zakhaev** | Sergeant John "Soap" MacTavish (M1911) | *Game Over* | Avenge the deaths of the squad; halts the Ultranationalist threat; provides climactic narrative closure. |
+

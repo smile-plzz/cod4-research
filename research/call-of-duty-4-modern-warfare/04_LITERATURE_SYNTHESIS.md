@@ -81,3 +81,4 @@ While the existing literature provides invaluable theoretical tools, it remains 
 - Crucially, **virtually no academic research has conducted a rigorous, side-by-side comparative analysis between the 2007 original and the 2016 remaster**, evaluating how modern rendering pipelines reshape the game's semiotic and affective impact.
 
 This monograph directly closes this research gap. By synthesizing exhaustive mission-by-mission ludonarrative breakdowns, 16-dimensional character profiling, weapon ballistics analysis, multiplayer systemic deconstruction, and side-by-side remaster comparisons, this study provides the definitive critical investigation of *Call of Duty 4: Modern Warfare*.
+

@@ -114,3 +114,4 @@ Viktor's suicide breaks Imran Zakhaev’s psychological restraint, transforming 
 
 ### Epilogue: Mile High Club
 Set after the main campaign narrative, a four-man SAS counter-terrorism assault squad breaches a double-deck commercial airliner flying at 32,000 feet. In an intense, 60-second time-attack sequence, the team moves through the cabin, shoots hijackers, breaches the upper deck, and rescues a VIP hostage before jumping from the depressurizing aircraft via parachute. The epilogue serves as a pure mechanical distillation of cinematic special-forces fantasy, deliberately decoupled from the tragic geopolitical consequences of the main campaign.
+

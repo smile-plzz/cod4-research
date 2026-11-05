@@ -44,3 +44,4 @@
 - **Weapon & Caliber Verification:** Barrett .50 Cal (M82A1, .50 BMG), M4A1 (5.56×45mm NATO), AK-47 (7.62×39mm Soviet), M16A4 (3-round burst, 5.56mm), M249 SAW (5.56mm belt), Desert Eagle (.50 Action Express), AC-130H (25mm, 40mm, 105mm). All confirmed authentic to the in-game assets.
 
 **Final Certification:** The research portfolio and academic manuscript fulfill all rigorous academic standards of the Academic Research Skills (ARS) framework.
+

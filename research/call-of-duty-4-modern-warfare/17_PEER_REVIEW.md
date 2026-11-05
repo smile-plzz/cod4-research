@@ -87,3 +87,4 @@ The Devil’s Advocate specifically challenges four core assumptions of the manu
 2. **Expand Context on Post-Soviet Hauntology:** Add textual analysis linking Zakhaev’s Ultranationalists to Chechen War imagery and 1990s "loose nukes" anxieties.
 3. **Detail the Remaster Multiplayer Rupture:** Document the December 2016 supply drop update in Section 13 and 14.
 4. **Final Word Count Verification:** Ensure that the final manuscript body (excluding references and appendices) remains solidly within the 9,000–11,000 word target.
+

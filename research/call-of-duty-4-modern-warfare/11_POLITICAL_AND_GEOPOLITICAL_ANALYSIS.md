@@ -85,3 +85,4 @@ Scholarly consensus identifies a profound **ethical tension**:
 - **The Case for Hegemonic Reproduction (Payne, 2016; Parlak & Kaygusuz, 2025; Stahl, 2010):** Despite these moments of tragedy, the game’s procedural rhetoric overwhelmingly affirms the necessity of Western militarism. The nuclear catastrophe does not lead the player to question *why* the US invaded the Middle East; it merely proves that the enemy was even more monstrous and dangerous than initially assumed. The horror of the nuclear blast ultimately serves to validate Captain Price’s ruthless, extrajudicial manhunt for Zakhaev. 
 
 Ultimately, *Call of Duty 4* achieves something far more culturally enduring than crude state propaganda: **it creates an emotionally complex, self-critical military fantasy that absorbs anti-war sentiment (the tragedy of nuclear horror and dying soldiers) only to re-deploy that trauma as the ultimate justification for perpetual, covert special-forces warfare.**
+

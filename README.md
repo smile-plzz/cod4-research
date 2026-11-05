@@ -29,3 +29,4 @@ Research follows the procedural specification of the [Academic Research Skills (
 - `dev-log.md` — Chronological log of execution steps and milestones.
 - `context.md` — Project goals, technical constraints, theoretical stack, and parameters.
 - `CHANGELOG.md` — Versioned updates and audit notes.
+

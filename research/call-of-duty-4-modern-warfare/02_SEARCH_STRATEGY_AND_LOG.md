@@ -75,3 +75,4 @@
 
 ## 4. Synthesis of Screening Outcomes
 The retrieved corpus contains 27 peer-reviewed academic articles and scholarly books alongside 7 authoritative primary developer sources and game artifacts. This corpus provides full coverage of the project’s multidisciplinary scope: game studies mechanics (Bogost, Juul), cultural-military critiques (Payne, Der Derian, Lenoir & Caldwell, Robinson), ideological/postcolonial deconstruction (Parlak & Kaygusuz, Cao, Höglund, Šisler), spatial/cinematic aesthetics (Ramsay, Bos, Smethurst), and technical remastering documentation (Burnett, Pellas, Newman).
+
